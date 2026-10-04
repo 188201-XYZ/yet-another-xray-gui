@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "dart run build_runner watch",
+      "name": "Run build_runner watch",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "name": "xray",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "xray (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "xray (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
