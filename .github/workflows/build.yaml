@@ -57,11 +57,14 @@ jobs:
             ${{ runner.os }}-build-runner-${{ hashFiles('pubspec.lock') }}
             ${{ runner.os }}-build-runner
 
-      - name: Build application release
-        run: |
-          dart pub get
-          dart run build_runner build
-          flutter build ${{ matrix.platform }} --release --target-platform ${{ matrix.platform }}-${{ matrix.arch }}
+      - name: Install Flutter dependencies
+        run: dart pub get
+
+      - name: Generate build_runner outputs
+        run: dart run build_runner build
+
+      - name: Build application
+        run: flutter build ${{ matrix.platform }} --release --target-platform ${{ matrix.platform }}-${{ matrix.arch }}
 
       - name: Upload application bundle artifact
         uses: actions/upload-artifact@v7
