@@ -38,7 +38,8 @@ jobs:
 
       - name: Build application release
         run: |
-          flutter pub get
+          dart pub get
+          dart run build_runner build
           flutter build ${{ matrix.platform }} --release --target-platform ${{ matrix.platform }}-${{ matrix.arch }}
 
       - name: Upload application bundle artifact
