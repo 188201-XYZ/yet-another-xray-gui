@@ -88,12 +88,20 @@ jobs:
       - name: Package release archives
         shell: bash
         run: |
-          for artifact in bundles/xray-*-release; do
-            [ -d "$artifact" ] || continue
-            name="${artifact##*/}"
-            name="${name%-release}"
-            tar -czf "${name}.tar.gz" -C "$artifact" .
-          done
+          set -euo pipefail
+          shopt -s nullglob
+          if [ -e bundles/xray ] || [ -e bundles/lib ] || [ -e bundles/data ]; then
+            tar -czf xray-linux-x64.tar.gz -C bundles .
+          else
+            for artifact in bundles/*; do
+              [ -d "$artifact" ] || continue
+
+              name="${artifact##*/}"
+              archive_name="${name%-release}"
+
+              tar -czf "${archive_name}.tar.gz" -C "$artifact" .
+            done
+          fi
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v3
