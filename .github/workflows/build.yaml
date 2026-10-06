@@ -48,6 +48,15 @@ jobs:
           cache: true
           cache-sdk: true
 
+      - name: Cache Build Runner
+        uses: actions/cache@v6
+        with:
+          path: .dart_tool/build
+          key: ${{ runner.os }}-build-runner-${{ hashFiles('pubspec.lock') }}-${{ github.ref_name }}
+          restore-keys: |
+            ${{ runner.os }}-build-runner-${{ hashFiles('pubspec.lock') }}
+            ${{ runner.os }}-build-runner
+
       - name: Build application release
         run: |
           dart pub get
