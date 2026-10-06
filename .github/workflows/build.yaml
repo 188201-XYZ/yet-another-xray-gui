@@ -2,7 +2,19 @@ name: Build application
 
 on:
   push:
+    paths:
+      - .github/workflows/build.yaml
+      - assets/**
+      - lib/**
+      - linux/**
+      - pubspec*
   pull_request:
+    paths:
+      - .github/workflows/build.yaml
+      - assets/**
+      - lib/**
+      - linux/**
+      - pubspec*
   workflow_dispatch:
 
 jobs:
