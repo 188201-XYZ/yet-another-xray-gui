@@ -2,7 +2,7 @@
 
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
 
-const APP_NAME = 'xray';
-const PACKAGE_NAME = 'xyz.188201.xray';
+const APP_NAME = 'Yet Another Xray GUI';
+const PACKAGE_NAME = 'xyz.188201.yet_another_xray_gui';
 
 final OS_NAME = defaultTargetPlatform.name;

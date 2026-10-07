@@ -2,8 +2,8 @@ import 'dart:convert' show jsonEncode, jsonDecode;
 
 import 'package:material_ui/material_ui.dart' show ThemeMode;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:xray/core/util/notifiers/shared_preferences_notifier.dart';
-import 'package:xray/features/settings/domain/models/app_settings.dart'
+import 'package:yet_another_xray_gui/core/util/notifiers/shared_preferences_notifier.dart';
+import 'package:yet_another_xray_gui/features/settings/domain/models/app_settings.dart'
     show AppSettings;
 
 part 'app_settings_notifier.g.dart';

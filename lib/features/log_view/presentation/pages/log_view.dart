@@ -1,9 +1,9 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:xray/features/log_view/presentation/widgets/clear_logs_button.dart';
-import 'package:xray/features/log_view/presentation/widgets/copy_logs_button.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/widgets/clear_logs_button.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/widgets/copy_logs_button.dart';
 
-import 'package:xray/features/log_view/presentation/widgets/log_list.dart';
-import 'package:xray/features/log_view/presentation/widgets/logs_search_field.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/widgets/log_list.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/widgets/logs_search_field.dart';
 
 class LogView extends StatefulWidget {
   const LogView({super.key});

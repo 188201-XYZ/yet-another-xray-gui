@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:xray/features/log_view/domain/log_entry.dart';
+import 'package:yet_another_xray_gui/features/log_view/domain/log_entry.dart';
 
 part 'log_list_provider.g.dart';
 

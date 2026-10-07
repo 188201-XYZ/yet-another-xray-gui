@@ -1,4 +1,4 @@
-# xray
+# Yet Another Xray GUI
 
 A new Flutter project.
 

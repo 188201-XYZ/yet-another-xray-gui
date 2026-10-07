@@ -1,12 +1,12 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/add_new_group_button.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/check_proxy_latency_button.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/check_proxy_speed_button.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/edit_group_button.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/group_list.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/profile_list.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/servers_search_field.dart';
-import 'package:xray/features/profile_manager/presentation/widgets/update_group_subscription_button.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/add_new_group_button.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/check_proxy_latency_button.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/check_proxy_speed_button.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/edit_group_button.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/group_list.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/profile_list.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/servers_search_field.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/widgets/update_group_subscription_button.dart';
 
 class ProfileManager extends StatelessWidget {
   const ProfileManager({super.key});

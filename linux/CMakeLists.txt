@@ -5,11 +5,11 @@ project(runner LANGUAGES CXX)
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
 # APP_NAME
-set(BINARY_NAME "xray")
+set(BINARY_NAME "yet_another_xray_gui")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 # PACKAGE_NAME
-set(APPLICATION_ID "xyz.u188201.xray")
+set(APPLICATION_ID "xyz.u188201.yet_another_xray_gui")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

@@ -1,11 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:xray/features/profile_manager/presentation/pages/profile_editor_dialog.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/pages/profile_editor_dialog.dart';
 
-import 'package:xray/features/settings/presentation/pages/options_dialog.dart';
-import 'package:xray/features/settings/presentation/pages/routing_dialog.dart';
-import 'package:xray/features/menu_bar/buttons/connect_button.dart';
-import 'package:xray/features/menu_bar/buttons/reload_button.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/pages/options_dialog.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/pages/routing_dialog.dart';
+import 'package:yet_another_xray_gui/features/menu_bar/buttons/connect_button.dart';
+import 'package:yet_another_xray_gui/features/menu_bar/buttons/reload_button.dart';
 
 class CustomMenuBar extends ConsumerWidget {
   const CustomMenuBar({super.key});

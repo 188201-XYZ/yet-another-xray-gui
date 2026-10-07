@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:xray/features/settings/presentation/widgets/alert_dialog_tab.dart';
-import 'package:xray/features/settings/presentation/widgets/alert_dialog_with_vertical_tabs.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/alert_dialog_tab.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/alert_dialog_with_vertical_tabs.dart';
 
 class RoutingDialog extends ConsumerStatefulWidget {
   const RoutingDialog({super.key});

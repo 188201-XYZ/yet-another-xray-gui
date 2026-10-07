@@ -1,13 +1,14 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:xray/core/constants/main.dart';
-import 'package:xray/core/util/util.dart' show CapitalizedString;
-import 'package:xray/features/settings/presentation/notifiers/app_settings_notifier.dart';
-import 'package:xray/features/settings/presentation/widgets/alert_dialog_tab.dart';
-import 'package:xray/features/settings/presentation/widgets/alert_dialog_with_vertical_tabs.dart';
-import 'package:xray/features/settings/presentation/widgets/list_section_header.dart';
-import 'package:xray/features/settings/presentation/widgets/theme_selector.dart';
+import 'package:yet_another_xray_gui/core/constants/main.dart';
+import 'package:yet_another_xray_gui/core/util/util.dart'
+    show CapitalizedString;
+import 'package:yet_another_xray_gui/features/settings/presentation/notifiers/app_settings_notifier.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/alert_dialog_tab.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/alert_dialog_with_vertical_tabs.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/list_section_header.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/widgets/theme_selector.dart';
 
 class OptionsDialog extends ConsumerStatefulWidget {
   const OptionsDialog({super.key});

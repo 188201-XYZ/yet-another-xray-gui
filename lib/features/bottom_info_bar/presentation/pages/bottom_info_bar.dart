@@ -1,8 +1,8 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:xray/features/bottom_info_bar/presentation/widgets/bandwidth_display.dart';
-import 'package:xray/features/bottom_info_bar/presentation/widgets/profile_info.dart';
-import 'package:xray/features/bottom_info_bar/presentation/widgets/proxy_mode_selector.dart';
-import 'package:xray/features/bottom_info_bar/presentation/widgets/routing_profile_selector.dart';
+import 'package:yet_another_xray_gui/features/bottom_info_bar/presentation/widgets/bandwidth_display.dart';
+import 'package:yet_another_xray_gui/features/bottom_info_bar/presentation/widgets/profile_info.dart';
+import 'package:yet_another_xray_gui/features/bottom_info_bar/presentation/widgets/proxy_mode_selector.dart';
+import 'package:yet_another_xray_gui/features/bottom_info_bar/presentation/widgets/routing_profile_selector.dart';
 
 class BottomInfoBar extends StatefulWidget {
   const BottomInfoBar({super.key});

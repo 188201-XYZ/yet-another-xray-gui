@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:xray/features/log_view/domain/log_entry.dart';
-import 'package:xray/features/log_view/presentation/providers/log_list_provider.dart';
+import 'package:yet_another_xray_gui/features/log_view/domain/log_entry.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/providers/log_list_provider.dart';
 
 class LogList extends ConsumerStatefulWidget {
   const LogList({super.key});

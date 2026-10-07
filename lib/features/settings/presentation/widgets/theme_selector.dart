@@ -1,8 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:xray/core/util/util.dart' show CapitalizedString;
-import 'package:xray/features/settings/presentation/notifiers/app_settings_notifier.dart';
+import 'package:yet_another_xray_gui/core/util/util.dart'
+    show CapitalizedString;
+import 'package:yet_another_xray_gui/features/settings/presentation/notifiers/app_settings_notifier.dart';
 
 class ThemeSelector extends ConsumerWidget {
   const ThemeSelector({super.key});

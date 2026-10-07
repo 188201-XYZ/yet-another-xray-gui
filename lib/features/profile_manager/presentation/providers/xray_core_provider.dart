@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:xray/features/log_view/presentation/providers/log_list_provider.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/providers/log_list_provider.dart';
 
 part 'xray_core_provider.g.dart';
 

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:xray/features/profile_manager/domain/xray_profile.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/xray_profile.dart';
 
 part 'profile_group_dto.g.dart';
 part 'profile_group_dto.freezed.dart';

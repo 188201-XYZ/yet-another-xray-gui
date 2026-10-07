@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:xray/features/profile_manager/domain/dto/profile_group_dto.dart';
-import 'package:xray/features/profile_manager/domain/dto/xray_profile_dto.dart';
-import 'package:xray/features/profile_manager/domain/profile_group.dart';
-import 'package:xray/features/profile_manager/domain/xray_profile.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/profile_group_dto.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/xray_profile_dto.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/profile_group.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/xray_profile.dart';
 
 part 'profile_list_provider.g.dart';
 

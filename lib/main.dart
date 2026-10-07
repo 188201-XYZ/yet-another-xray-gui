@@ -4,17 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:xray/core/constants/main.dart';
-import 'package:xray/core/util/notifiers/logging_notifier.dart';
-import 'package:xray/core/util/notifiers/shared_preferences_notifier.dart';
-import 'package:xray/core/util/riverpod_logger.dart';
+import 'package:yet_another_xray_gui/core/constants/main.dart';
+import 'package:yet_another_xray_gui/core/util/notifiers/logging_notifier.dart';
+import 'package:yet_another_xray_gui/core/util/notifiers/shared_preferences_notifier.dart';
+import 'package:yet_another_xray_gui/core/util/riverpod_logger.dart';
 
-import 'package:xray/features/settings/presentation/notifiers/app_settings_notifier.dart';
-import 'package:xray/core/theme/theme.dart';
-import 'package:xray/features/bottom_info_bar/presentation/pages/bottom_info_bar.dart';
-import 'package:xray/features/log_view/presentation/pages/log_view.dart';
-import 'package:xray/features/menu_bar/menu_bar.dart';
-import 'package:xray/features/profile_manager/presentation/pages/profile_manager.dart';
+import 'package:yet_another_xray_gui/features/settings/presentation/notifiers/app_settings_notifier.dart';
+import 'package:yet_another_xray_gui/core/theme/theme.dart';
+import 'package:yet_another_xray_gui/features/bottom_info_bar/presentation/pages/bottom_info_bar.dart';
+import 'package:yet_another_xray_gui/features/log_view/presentation/pages/log_view.dart';
+import 'package:yet_another_xray_gui/features/menu_bar/menu_bar.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/presentation/pages/profile_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

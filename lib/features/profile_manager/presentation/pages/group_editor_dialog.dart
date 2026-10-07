@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart'
     show TextInputFormatter, FilteringTextInputFormatter;
 
-import 'package:xray/features/profile_manager/domain/dto/profile_group_dto.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/profile_group_dto.dart';
 
 class GroupEditorDialog extends StatefulWidget {
   const GroupEditorDialog({super.key, this.groupDto});
