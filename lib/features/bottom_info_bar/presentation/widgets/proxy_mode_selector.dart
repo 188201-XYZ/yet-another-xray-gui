@@ -14,7 +14,6 @@ class ProxyModeSelector extends StatelessWidget {
         DropdownMenuEntry(value: 'clear', label: 'Clear proxy'),
         DropdownMenuEntry(value: 'set', label: 'Set proxy'),
         DropdownMenuEntry(value: 'nochange', label: 'Don\'t change proxy'),
-        DropdownMenuEntry(value: 'pac', label: 'Set PAC proxy'),
       ],
     );
   }
