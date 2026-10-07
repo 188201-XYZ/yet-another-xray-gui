@@ -1,13 +1,12 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:flutter/services.dart'
-    show TextInputFormatter, FilteringTextInputFormatter;
+import 'package:flutter/services.dart';
 
-import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/profile_group_dto.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/profile_group.dart';
 
 class GroupEditorDialog extends StatefulWidget {
-  const GroupEditorDialog({super.key, this.groupDto});
+  const GroupEditorDialog({super.key, this.group});
 
-  final ProfileGroupDTO? groupDto;
+  final ProfileGroup? group;
 
   @override
   State<GroupEditorDialog> createState() => _GroupEditorDialogState();
@@ -16,16 +15,16 @@ class GroupEditorDialog extends StatefulWidget {
 class _GroupEditorDialogState extends State<GroupEditorDialog> {
   final _formKey = GlobalKey<FormState>();
 
-  late ProfileGroupDTO _groupDto;
+  late ProfileGroup _groupDto;
 
   bool get _hasSubscriptionUrl => _groupDto.subscriptionURL != null;
   bool get _subscriptionAutoUpdate => _groupDto.enableAutoUpdate;
-  bool get isNew => widget.groupDto == null;
+  bool get isNew => widget.group == null;
 
   @override
   void initState() {
     super.initState();
-    _groupDto = widget.groupDto ?? ProfileGroupDTO();
+    _groupDto = widget.group ?? ProfileGroup();
   }
 
   void _saveForm(BuildContext context) {

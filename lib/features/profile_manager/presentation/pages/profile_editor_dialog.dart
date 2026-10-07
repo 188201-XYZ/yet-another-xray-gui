@@ -1,14 +1,13 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:flutter/services.dart'
-    show TextInputFormatter, FilteringTextInputFormatter;
-import 'package:yet_another_xray_gui/core/util/util.dart'
-    show CapitalizedString;
-import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/xray_profile_dto.dart';
+import 'package:flutter/services.dart';
+
+import 'package:yet_another_xray_gui/core/util/util.dart';
+import 'package:yet_another_xray_gui/features/profile_manager/domain/xray_profile.dart';
 
 class ProfileEditorDialog extends StatefulWidget {
-  const ProfileEditorDialog({super.key, this.profileDto});
+  const ProfileEditorDialog({super.key, this.profile});
 
-  final XRAYProfileDTO? profileDto;
+  final XRAYProfile? profile;
 
   @override
   State<ProfileEditorDialog> createState() => _ProfileEditorDialogState();
@@ -17,22 +16,22 @@ class ProfileEditorDialog extends StatefulWidget {
 class _ProfileEditorDialogState extends State<ProfileEditorDialog> {
   final _formKey = GlobalKey<FormState>();
 
-  void _saveForm(BuildContext context, XRAYProfileDTO profileDto) {
+  void _saveForm(BuildContext context, XRAYProfile profile) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
-      print(profileDto.toString());
+      print(profile.toString());
 
-      Navigator.pop(context, profileDto);
+      Navigator.pop(context, profile);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    XRAYProfileDTO profileDto =
-        widget.profileDto ??
-        XRAYProfileDTO(tag: 'invalid', protocol: XRAYProtocols.vless);
-    bool isNew = widget.profileDto == null;
+    XRAYProfile profile =
+        widget.profile ??
+        XRAYProfile(tag: 'invalid', protocol: XRAYProtocols.vless);
+    bool isNew = widget.profile == null;
 
     return AlertDialog(
       title: Center(
@@ -54,7 +53,7 @@ class _ProfileEditorDialogState extends State<ProfileEditorDialog> {
             ),
             FilledButton(
               onPressed: () {
-                _saveForm(context, profileDto);
+                _saveForm(context, profile);
               },
               child: Text(isNew ? 'Create' : 'Save'),
             ),

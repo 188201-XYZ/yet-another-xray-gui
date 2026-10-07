@@ -1,8 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/profile_group_dto.dart';
-import 'package:yet_another_xray_gui/features/profile_manager/domain/dto/xray_profile_dto.dart';
 import 'package:yet_another_xray_gui/features/profile_manager/domain/profile_group.dart';
 import 'package:yet_another_xray_gui/features/profile_manager/domain/xray_profile.dart';
 
@@ -26,20 +24,18 @@ class UserDefinedGroupListNotifier extends _$UserDefinedGroupListNotifier {
     ];
   }
 
-  void addGroup(ProfileGroupDTO groupDto) {
-    final ProfileGroup newGroup = ProfileGroup.fromDto(_uuid.v7(), groupDto);
-
-    state = [...state, newGroup];
+  void addGroup(ProfileGroup group) {
+    state = [...state, group.copyWith(id: _uuid.v7())];
   }
 
-  void editGroup(String groupId, ProfileGroupDTO groupDto) {
-    state = state.map((group) {
-      if (group.id != groupId) return group;
-      return group.copyWith(
-        name: groupDto.name,
-        subscriptionURL: groupDto.subscriptionURL,
-        enableAutoUpdate: groupDto.enableAutoUpdate,
-        autoUpdateInterval: groupDto.autoUpdateInterval,
+  void editGroup(String groupId, ProfileGroup group) {
+    state = state.map((groupElement) {
+      if (groupElement.id != groupId) return groupElement;
+      return groupElement.copyWith(
+        name: group.name,
+        subscriptionURL: group.subscriptionURL,
+        enableAutoUpdate: group.enableAutoUpdate,
+        autoUpdateInterval: group.autoUpdateInterval,
       );
     }).toList();
   }
@@ -55,12 +51,15 @@ class UserDefinedGroupListNotifier extends _$UserDefinedGroupListNotifier {
     state = state.where((group) => group.id != delGroupId).toList();
   }
 
-  void addProfileToGroup(String groupId, XRAYProfileDTO profileDto) {
-    final XRAYProfile newProfile = XRAYProfile.fromDto(_uuid.v7(), profileDto);
-
+  void addProfileToGroup(String groupId, XRAYProfile profile) {
     state = state.map((group) {
       if (group.id != groupId) return group;
-      return group.copyWith(profiles: [...group.profiles, newProfile]);
+      return group.copyWith(
+        profiles: [
+          ...group.profiles,
+          profile.copyWith(id: _uuid.v7()),
+        ],
+      );
     }).toList();
   }
 

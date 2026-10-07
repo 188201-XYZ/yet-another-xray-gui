@@ -46,7 +46,7 @@ class GroupList extends ConsumerWidget {
                   onSelected: (value) {
                     ref
                         .read(groupSelectionProvider.notifier)
-                        .setSelectedGroup(groupObj.id);
+                        .setSelectedGroup(groupObj.id!);
                   },
                   selected: groupObj.id == ref.watch(groupSelectionProvider),
                 ),
