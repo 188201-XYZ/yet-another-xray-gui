@@ -25,7 +25,6 @@ class _LogViewState extends State<LogView> {
             child: Row(
               children: [
                 LogsSearchField(),
-                VerticalDivider(width: 32),
                 Spacer(),
                 CopyLogsButton(),
                 ClearLogsButton(),
