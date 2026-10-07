@@ -17,28 +17,26 @@ class _GroupEditorDialogState extends State<GroupEditorDialog> {
   final _formKey = GlobalKey<FormState>();
 
   late ProfileGroupDTO _groupDto;
-  bool _hasSubscriptionUrl = false;
-  bool _subscriptionAutoUpdate = false;
+
+  bool get _hasSubscriptionUrl => _groupDto.subscriptionURL != null;
+  bool get _subscriptionAutoUpdate => _groupDto.enableAutoUpdate;
+  bool get isNew => widget.groupDto == null;
 
   @override
   void initState() {
     super.initState();
     _groupDto = widget.groupDto ?? ProfileGroupDTO();
-    _hasSubscriptionUrl = _groupDto.subscriptionURL != null;
-    _subscriptionAutoUpdate = _groupDto.enableAutoUpdate;
   }
 
   void _saveForm(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      Navigator.pop(context, _groupDto);
-    }
+    if (!_formKey.currentState!.validate()) return;
+
+    _formKey.currentState!.save();
+    Navigator.pop(context, _groupDto);
   }
 
   @override
   Widget build(BuildContext context) {
-    final bool isNew = widget.groupDto == null;
-
     return AlertDialog(
       title: Center(
         child: Text(
@@ -78,18 +76,17 @@ class _GroupEditorDialogState extends State<GroupEditorDialog> {
                     ),
                     initialValue: isNew ? 'New Group' : _groupDto.name,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (v) =>
-                        (v == null || v.isEmpty) ? 'Required' : null,
-                    onSaved: (v) => setState(() {
-                      final trimmedName = (v ?? '').trim();
+                    validator: (value) =>
+                        (value == null || value.isEmpty) ? 'Required' : null,
+                    onSaved: (value) {
+                      final trimmedName = (value ?? '').trim();
                       _groupDto = _groupDto.copyWith(
                         name: trimmedName.isNotEmpty
                             ? trimmedName
                             : 'invalidname',
                       );
-                    }),
+                    },
                   ),
-
                   TextFormField(
                     decoration: const InputDecoration(
                       // border: OutlineInputBorder(),
@@ -102,33 +99,29 @@ class _GroupEditorDialogState extends State<GroupEditorDialog> {
                         ? ''
                         : (_groupDto.subscriptionURL?.toString() ?? ''),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (v) {
-                      if (v == null || v.isEmpty) return null;
-                      if (v.startsWith('https')) return null;
-                      if (v.startsWith('http')) return 'Plain HTTP is insecure';
+                    validator: (value) {
+                      if (value == null || value.isEmpty) return null;
+                      if (value.startsWith('https')) return null;
+                      // dart format off
+                      if (value.startsWith('http')) return 'Plain HTTP is insecure';
                       return 'Unsupported scheme';
                     },
-                    onChanged: (v) =>
-                        setState(() => _hasSubscriptionUrl = v.isNotEmpty),
-                    onSaved: (v) => setState(() {
+                    onSaved: (value) {
                       _groupDto = _groupDto.copyWith(
-                        subscriptionURL: v == null || v.isEmpty
+                        subscriptionURL: value == null || value.isEmpty
                             ? null
-                            : Uri.parse(v),
+                            : Uri.parse(value),
                       );
-                    }),
+                    },
                   ),
-
                   FormField<bool>(
-                    // FIXME
-                    initialValue: isNew
-                        ? _subscriptionAutoUpdate
-                        : _groupDto.selected,
-                    onSaved: (v) => setState(() {
-                      _groupDto = _groupDto.copyWith(selected: v ?? false);
-                    }),
-
-                    builder: (FormFieldState<bool> state) => Tooltip(
+                    initialValue: _subscriptionAutoUpdate,
+                    onSaved: (value) {
+                      _groupDto = _groupDto.copyWith(
+                        enableAutoUpdate: value ?? false,
+                      );
+                    },
+                    builder: (state) => Tooltip(
                       message: _hasSubscriptionUrl
                           ? ''
                           : 'No subscription URL specified',
@@ -142,19 +135,21 @@ class _GroupEditorDialogState extends State<GroupEditorDialog> {
                             'Should the subscription be updated automatically in the background',
                           ),
                           contentPadding: EdgeInsets.zero,
-
                           value: state.value ?? false,
                           onChanged: !_hasSubscriptionUrl
                               ? null
-                              : (v) {
-                                  setState(() => _subscriptionAutoUpdate = v);
-                                  state.didChange(v);
+                              : (value) {
+                                  state.didChange(value);
+                                  setState(() {
+                                    _groupDto = _groupDto.copyWith(
+                                      enableAutoUpdate: value,
+                                    );
+                                  });
                                 },
                         ),
                       ),
                     ),
                   ),
-
                   Tooltip(
                     message: _subscriptionAutoUpdate && _hasSubscriptionUrl
                         ? ''
@@ -177,14 +172,14 @@ class _GroupEditorDialogState extends State<GroupEditorDialog> {
                           : _groupDto.autoUpdateInterval.toString(),
                       autovalidateMode:
                           AutovalidateMode.onUserInteractionIfError,
-                      validator: (v) =>
-                          (v == null || v.isEmpty) ? 'Required' : null,
-                      onSaved: (v) => setState(() {
-                        final parsed = int.tryParse(v ?? '');
+                      validator: (value) =>
+                          (value == null || value.isEmpty) ? 'Required' : null,
+                      onSaved: (value) {
+                        final parsed = int.tryParse(value ?? '');
                         _groupDto = _groupDto.copyWith(
                           autoUpdateInterval: parsed ?? 360,
                         );
-                      }),
+                      },
                     ),
                   ),
 
