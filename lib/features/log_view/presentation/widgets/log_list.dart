@@ -83,7 +83,9 @@ class _LogListState extends ConsumerState<LogList> {
               child: ListView.builder(
                 controller: _scrollController,
                 itemCount: logList.length,
+                itemExtent: 20,
                 itemBuilder: (BuildContext context, int index) {
+                  final logEntry = logList[index];
                   return DecoratedBox(
                     decoration: BoxDecoration(
                       color: index.isOdd
@@ -94,17 +96,9 @@ class _LogListState extends ConsumerState<LogList> {
                             )
                           : null,
                     ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: Text(logList[index].text)),
-                        const SelectionContainer.disabled(
-                          child: SizedBox(width: 4),
-                        ),
-                        SelectionContainer.disabled(
-                          child: Text('[${logList[index].id}]'),
-                        ),
-                      ],
+                    child: LogRow(
+                      key: ValueKey(logEntry.id),
+                      logEntry: logEntry,
                     ),
                   );
                 },
@@ -123,6 +117,27 @@ class _LogListState extends ConsumerState<LogList> {
                 ),
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+class LogRow extends StatelessWidget {
+  const new({super.key, required this.logEntry});
+
+  final LogEntry logEntry;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 20,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(child: Text(logEntry.text)),
+          const SelectionContainer.disabled(child: SizedBox(width: 4)),
+          SelectionContainer.disabled(child: Text('[${logEntry.id}]')),
         ],
       ),
     );
