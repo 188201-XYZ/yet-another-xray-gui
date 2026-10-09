@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'package:yet_another_xray_gui/core/constants/main.dart';
 import 'package:yet_another_xray_gui/core/util/notifiers/logging_notifier.dart';
@@ -18,6 +19,24 @@ import 'package:yet_another_xray_gui/features/profile_manager/presentation/pages
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+
+  const options = WindowOptions(
+    size: Size(1600, 900),
+    minimumSize: Size(1600, 900),
+    center: true,
+    titleBarStyle: TitleBarStyle.hidden,
+    title: 'xray',
+  );
+
+  await windowManager.waitUntilReadyToShow(options, () async {
+    await windowManager.setTitleBarStyle(TitleBarStyle.hidden);
+
+    await windowManager.show();
+    await windowManager.setMinimumSize(options.minimumSize!);
+    await windowManager.setSize(options.size!);
+    // await windowManager.focus();
+  });
 
   // This is not safe from the sharedprefs file
   // having some bs as it's contents
